@@ -37,7 +37,6 @@ class RegistrationPage:
         browser.element(".react-datepicker__year-select").send_keys(year)
         browser.element(".react-datepicker__month-select").send_keys(month)
         browser.element(f".react-datepicker__day--0{day}").click()
-        browser.element("#subjectsInput").type("Physics").press_enter()
 
     def select_hobbies(self, value):
         browser.element("[for=hobbies-checkbox-2]").perform(command.js.scroll_into_view)

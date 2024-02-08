@@ -19,7 +19,7 @@ def test_student_registration_form():
     registration_page.fill_state("Haryana")
     registration_page.fill_city("Karnal")
     registration_page.submit()
-    # THEN
+    #THEN
     registration_page.should_have_registered_user_with(
         "Ivan",
         "Ivanov",
