@@ -49,6 +49,9 @@ class RegistrationPage:
     def type_subjects(self, value):
         browser.element('#subjectsInput').type(value).press_enter()
 
+    def type_current_address(self, value):
+        browser.element("#currentAddress").send_keys(value)
+
     def should_have_registered_user_with(
             self,
             first_name,
@@ -90,4 +93,8 @@ class RegistrationPage:
             have.exact_text(city)
         ).click()
 
+    def submit(self):
+        browser.element("#submit").submit()
 
+    def close_submiting_form(self):
+        browser.element("#closeLargeModal").double_click()

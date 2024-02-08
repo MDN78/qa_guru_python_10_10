@@ -1,8 +1,4 @@
-import pytest
-from selene import browser, have, be
 import time
-from selene.core import command
-from demoqa_tests import resource
 from demoqa_tests.pages.registration_page import RegistrationPage
 
 
@@ -19,37 +15,11 @@ def test_student_registration_form():
     registration_page.select_hobbies("1")
     registration_page.upload_picture("picture.jpg")
     registration_page.type_subjects('Physics')
-
-
-
-
-    browser.element("#currentAddress").send_keys("111999, St Hall avenue 34")
-
-
+    registration_page.type_current_address("111999, St Hall avenue 34")
     registration_page.fill_state("Haryana")
-
     registration_page.fill_city("Karnal")
-
-
-    browser.element("#submit").submit()
+    registration_page.submit()
     # THEN
-    '''
-    registration_page.registered_user_data.should(
-        have.exact_texts(
-                "Ivan Ivanov",
-                "Ivanov@test.com",
-                "Male",
-                "1234567890",
-                "10 January,1980",
-                "Physics",
-                "Sports",
-                "picture.jpg",
-                "111999, St Hall avenue 34",
-                "Haryana Karnal",
-        )
-    )
-    '''
-
     registration_page.should_have_registered_user_with(
         "Ivan",
         "Ivanov",
@@ -63,7 +33,6 @@ def test_student_registration_form():
         "111999, St Hall avenue 34",
         "Haryana Karnal",
     )
-
-    browser.element("#closeLargeModal").double_click()
+    registration_page.close_submiting_form()
 
     time.sleep(4)
