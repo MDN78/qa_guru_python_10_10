@@ -1,7 +1,15 @@
 import time
+from allure_commons.types import Severity
 from demoqa_tests.pages.registration_page import RegistrationPage
+import allure
 
 
+@allure.tag('DemoQA')
+@allure.severity(Severity.NORMAL)
+@allure.label('MDN78', 'QAauto')
+@allure.feature('Student Registration Form')
+@allure.story('Filling certain user dates')
+@allure.link('https://demoqa.com', name='Practice Form')
 def test_student_registration_form():
     registration_page = RegistrationPage()
     registration_page.open()
@@ -35,4 +43,3 @@ def test_student_registration_form():
     )
     registration_page.close_submiting_form()
 
-    time.sleep(4)
