@@ -1,4 +1,3 @@
-import time
 from allure_commons.types import Severity
 from demoqa_tests.pages.registration_page import RegistrationPage
 import allure
