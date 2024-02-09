@@ -6,9 +6,6 @@ from demoqa_tests import resource
 
 
 class RegistrationPage:
-    """def __init__(self):
-    self.registered_user_data = browser.element(".table").all("td:nth-child(2)")
-    """
 
     @allure.step('Open maim page')
     def open(self):
