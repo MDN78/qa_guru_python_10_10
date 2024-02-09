@@ -15,7 +15,8 @@ class User:
     hobbies: str
     picture: str
     current_address: str
-    state_city: str
+    state: str
+    city: str
 
 
 oleg = User(
@@ -28,8 +29,9 @@ oleg = User(
     date_of_birth_month='January',
     date_of_birth_day='10',
     subjects="Physics",
-    hobbies="Sports",
+    hobbies="1",
     picture="picture.jpg",
     current_address="111999, St Hall avenue 34",
-    state_city="Haryana Karnal",
+    state="Haryana",
+    city="Karnal",
 )

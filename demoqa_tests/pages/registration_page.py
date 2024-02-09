@@ -1,3 +1,5 @@
+import time
+
 import allure
 from selene import browser, have, be
 from selene.core import command
@@ -24,6 +26,10 @@ class RegistrationPage:
         self.submit = browser.element("#submit")
         self.subjects = browser.element('#subjectsInput')
         self.picture = browser.element("#uploadPicture")
+        self.current_address = browser.element("#currentAddress")
+        self.button_submit = browser.element("#submit")
+        self.button_modal = browser.element("#closeLargeModal")
+
 
 
     # @allure.step('Open maim page')
@@ -69,15 +75,15 @@ class RegistrationPage:
         browser.element("[for=hobbies-checkbox-2]").perform(command.js.scroll_into_view)
         browser.all("[type=checkbox]").element_by(have.value(user.hobbies)).element("..").click()
 
-    @allure.step('Upload picture with name {value}')
-    def upload_picture(self, value):
-        browser.element("#uploadPicture").send_keys(resource.path(value))
+    # @allure.step('Upload picture with name {value}')
+    # def upload_picture(self, value):
+    #     browser.element("#uploadPicture").send_keys(resource.path(value))
 
 
 
-    @allure.step('Input current address {value}')
-    def type_current_address(self, value):
-        browser.element("#currentAddress").send_keys(value)
+    # @allure.step('Input current address {value}')
+    # def type_current_address(self, value):
+    #     browser.element("#currentAddress").send_keys(value)
 
     @allure.step('Checking registration form')
     def should_have_registered_user_with(
@@ -109,23 +115,23 @@ class RegistrationPage:
             )
         )
 
-    @allure.step('Select state {state}')
-    def fill_state(self, state):
+    # @allure.step('Select state {state}')
+    def fill_state(self, user: User):
         browser.element("#state").click()
         browser.all("[id^=react-select][id*=option]").element_by(
-            have.exact_text(state)
+            have.exact_text(user.state)
         ).click()
 
-    @allure.step('Select city {city}')
-    def fill_city(self, city):
+    # @allure.step('Select city {city}')
+    def fill_city(self, user: User):
         browser.element("#city").click()
         browser.all("[id^=react-select][id*=option]").element_by(
-            have.exact_text(city)
+            have.exact_text(user.city)
         ).click()
 
-    @allure.step('Confirm form')
-    def submit(self):
-        browser.element("#submit").submit()
+    # @allure.step('Confirm form')
+    # def submit(self):
+    #     browser.element("#submit").submit()
 
     @allure.step('Close modal window')
     def close_submiting_form(self):
@@ -141,6 +147,10 @@ class RegistrationPage:
         self.subjects.type(user.subjects).press_enter()
         self.select_hobbies(user)
         self.picture.send_keys(resource.path(user.picture))
+        self.current_address.send_keys(user.current_address)
+        self.button_submit.submit()
+        time.sleep(3)
+        self.button_modal.double_click()
 
 
 
