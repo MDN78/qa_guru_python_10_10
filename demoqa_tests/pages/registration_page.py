@@ -57,23 +57,6 @@ class RegistrationPage:
             have.exact_text(user.city)
         ).click()
 
-    @allure.step('Checking registered user info')
-    def should_have_registered_user_with(self, user: User):
-        browser.element(".table").all("td:nth-child(2)").should(
-            have.exact_texts(
-                f"{user.first_name} {user.last_name}",
-                user.email,
-                user.gender,
-                user.phone_number,
-                f'{user.date_of_birth_day} {user.date_of_birth_month},{user.date_of_birth_year}',
-                user.subjects,
-                user.hobbies,
-                user.picture,
-                user.current_address,
-                f'{user.state} {user.city}',
-            )
-        )
-
     def registration(self, user: User):
         with allure.step('Input first name'):
             self.first_name.send_keys(user.first_name)
@@ -99,3 +82,20 @@ class RegistrationPage:
             self.button_submit.submit()
         with allure.step('Close modal window'):
             self.button_modal.double_click()
+
+    @allure.step('Checking registered user info')
+    def should_have_registered_user_with(self, user: User):
+        browser.element(".table").all("td:nth-child(2)").should(
+            have.exact_texts(
+                f"{user.first_name} {user.last_name}",
+                user.email,
+                user.gender,
+                user.phone_number,
+                f'{user.date_of_birth_day} {user.date_of_birth_month},{user.date_of_birth_year}',
+                user.subjects,
+                user.hobbies,
+                user.picture,
+                user.current_address,
+                f'{user.state} {user.city}',
+            )
+        )
