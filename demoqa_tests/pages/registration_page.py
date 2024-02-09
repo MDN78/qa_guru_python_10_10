@@ -46,6 +46,10 @@ class RegistrationPage:
         browser.element(".react-datepicker__month-select").send_keys(month)
         browser.element(f".react-datepicker__day--0{day}").click()
 
+    @allure.step('Input subjects {value}')
+    def type_subjects(self, value):
+        browser.element('#subjectsInput').type(value).press_enter()
+
     @allure.step('Select hobbies {value}')
     def select_hobbies(self, value):
         browser.element("[for=hobbies-checkbox-2]").perform(command.js.scroll_into_view)
@@ -55,13 +59,27 @@ class RegistrationPage:
     def upload_picture(self, value):
         browser.element("#uploadPicture").send_keys(resource.path(value))
 
-    @allure.step('Input subjects {value}')
-    def type_subjects(self, value):
-        browser.element('#subjectsInput').type(value).press_enter()
-
     @allure.step('Input current address {value}')
     def type_current_address(self, value):
         browser.element("#currentAddress").send_keys(value)
+
+    @allure.step('Select state {state}')
+    def fill_state(self, state):
+        browser.element("#state").click()
+        browser.all("[id^=react-select][id*=option]").element_by(
+            have.exact_text(state)
+        ).click()
+
+    @allure.step('Select city {city}')
+    def fill_city(self, city):
+        browser.element("#city").click()
+        browser.all("[id^=react-select][id*=option]").element_by(
+            have.exact_text(city)
+        ).click()
+
+    @allure.step('Confirm form')
+    def submit(self):
+        browser.element("#submit").submit()
 
     @allure.step('Checking registration form')
     def should_have_registered_user_with(
@@ -92,24 +110,6 @@ class RegistrationPage:
                 state_city,
             )
         )
-
-    @allure.step('Select state {state}')
-    def fill_state(self, state):
-        browser.element("#state").click()
-        browser.all("[id^=react-select][id*=option]").element_by(
-            have.exact_text(state)
-        ).click()
-
-    @allure.step('Select city {city}')
-    def fill_city(self, city):
-        browser.element("#city").click()
-        browser.all("[id^=react-select][id*=option]").element_by(
-            have.exact_text(city)
-        ).click()
-
-    @allure.step('Confirm form')
-    def submit(self):
-        browser.element("#submit").submit()
 
     @allure.step('Close modal window')
     def close_submiting_form(self):
