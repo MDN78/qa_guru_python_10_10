@@ -35,3 +35,18 @@ oleg = User(
     state="Haryana",
     city="Karnal",
 )
+
+@dataclasses.dataclass
+class SimpleUser:
+    full_name: str
+    email: str
+    current_address: str
+    permanent_address: str
+
+
+semen = SimpleUser(
+    full_name='Semen Semenov',
+    email='semeov@gmail.de',
+    current_address='111999, St Hall avenue 34',
+    permanent_address='123456, St Persons street 42'
+)
