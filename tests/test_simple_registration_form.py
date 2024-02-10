@@ -5,10 +5,10 @@ from demoqa_tests.pages.simple_registration_page import SimpleUserRegistrationPa
 
 
 def test_registers_user():
-    registration_page = SimpleUserRegistrationPage()
+    simple_registration_form = SimpleUserRegistrationPage()
     person = users.semen
-    registration_page.open()
-    registration_page.register(person)
+    simple_registration_form.open()
+    simple_registration_form.register(person)
 
     # registration_page.fill_full_name(person.full_name)
     # registration_page.fill_email(person.email)
@@ -16,5 +16,5 @@ def test_registers_user():
     # registration_page.fill_permanent_address(person.permanent_address)
     # # time.sleep(3)
     # registration_page.submit()
-    registration_page.should_have_submited_info(person)
+    simple_registration_form.should_have_submited_info(person)
     time.sleep(3)
