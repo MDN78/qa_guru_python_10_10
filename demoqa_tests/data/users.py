@@ -47,6 +47,6 @@ class SimpleUser:
 semen = SimpleUser(
     full_name='Semen Semenov',
     email='semeov@gmail.de',
-    current_address='111999, St Hall avenue 34',
-    permanent_address='123456, St Persons street 42'
+    current_address="111999 St Hall avenue 34",
+    permanent_address="123456 St Persons street 4",
 )
