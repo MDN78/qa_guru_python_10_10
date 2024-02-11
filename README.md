@@ -21,7 +21,7 @@
 
 ### Часть 3 branch application-manager
 
-[branch application-manager]()
+[branch application-manager](https://github.com/MDN78/qa_guru_python_10_10/tree/application-manager)
 
 * добавить в проект тест на упрощенную регистрацию через форму https://demoqa.com/text-box  и соответствующий PageObject. 
 
