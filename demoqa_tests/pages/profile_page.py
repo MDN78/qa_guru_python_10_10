@@ -1,9 +1,11 @@
 from demoqa_tests.data.users import SimpleUser
 from selene import browser, have
+import allure
 
 
 class ProfilePage:
 
+    @allure.step('Checking submited user information')
     def should_have_submited_info(self, user: SimpleUser):
         browser.element('.border').all('p').should(
             have.exact_texts(
