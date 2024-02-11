@@ -5,7 +5,8 @@ from demoqa_tests.pages.simple_registration_page import SimpleUserRegistrationPa
 
 
 def test_registers_user():
-    app.simple_registration_form.open()
+    # app.simple_registration_form.open()
+    app.left_panel.open_simple_registration_form()
     app.simple_registration_form.register(users.semen)
     app.profile.should_have_submited_info(users.semen)
 
