@@ -11,7 +11,6 @@ import allure
 @allure.feature('Student Registration Form')
 @allure.story('Sent registration form')
 @allure.link('https://demoqa.com', name='Practice Form')
-@pytest.mark.skip
 def test_student_registration_form_2():
     registration_page = RegistrationPage()
     student = users.oleg
