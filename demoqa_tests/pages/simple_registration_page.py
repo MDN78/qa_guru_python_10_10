@@ -20,6 +20,13 @@ class SimpleUserRegistrationPage:
         )
         browser.all("[id^=google_ads][id$=container__]").perform(command.js.remove)
 
+    def register(self, user: SimpleUser):
+        self.full_name.type(user.full_name)
+        self.email.type(user.email)
+        self.current_address.type(user.current_address)
+        self.permanent_address.type(user.permanent_address)
+        self.submit_button.click()
+
     # def fill_full_name(self, value):
     #     self.full_name.type(value)
     #
@@ -34,23 +41,6 @@ class SimpleUserRegistrationPage:
     #
     # def submit(self):
     #     self.submit_button.click()
-
-    def register(self, user: SimpleUser):
-        self.full_name.type(user.full_name)
-        self.email.type(user.email)
-        self.current_address.type(user.current_address)
-        self.permanent_address.type(user.permanent_address)
-        self.submit_button.click()
-
-    def should_have_submited_info(self, user: SimpleUser):
-        browser.element('.border').all('p').should(
-            have.exact_texts(
-                f'Name:{user.full_name}',
-                f'Email:{user.email}',
-                f'Current Address :{user.current_address}',
-                f'Permananet Address :{user.permanent_address}',
-            )
-        )
 
 # # создать папку степс и туда переложить
 # class SimpleUserRegistrationSteps:
