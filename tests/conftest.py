@@ -31,7 +31,6 @@ def driver_configuration():
 
         browser.config.driver = driver
 
-
     yield
     with allure.step('Close driver'):
         browser.quit()
