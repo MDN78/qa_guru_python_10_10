@@ -85,6 +85,8 @@ attach.add_logs(browser)
 Далее код необходимо модернизировать:
 
 ```commandline
+from selenium.webdriver.chrome.options import Options
+
 options = Options()
 selenoid_capabilities = {
     "browserName": "chrome",
@@ -95,7 +97,7 @@ selenoid_capabilities = {
     }
 }
 
-options.capabilities,update(selenoid_capabilities)
+options.capabilities.update(selenoid_capabilities)
 driver = webdriver.Remote(
     command_executor="https://user1:1234@selenoid.autotests.cloud/wd/hub",
     options=options)
