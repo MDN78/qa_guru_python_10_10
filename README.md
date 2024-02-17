@@ -1,4 +1,4 @@
-## Задание 10
+## Задание 10 и Задание 12 - Jenkins
 
 Провести рефакторинг своего теста на регистрацию студента по форме `https://demoqa.com/automation-practice-form` 
 
@@ -31,3 +31,6 @@
 
 * cоответственно добавить пейджобджект для LeftPanel и создать его объект в виде поля обьекта апликейшен-менеджера
 
+### Часть 4 Jenkins + Selenoid
+
+[jenkins-high-level-step-objects](https://github.com/MDN78/qa_guru_python_10_10/tree/jenkins-high-level-step-objects)
